@@ -95,17 +95,23 @@ function renderResults(items) {
     resultsEl.innerHTML = '<div class="card"><p>No providers found for your selection.</p></div>';
     return;
   }
-  resultsEl.innerHTML = items.map(p => `
+  resultsEl.innerHTML = items.map(p => {
+    const avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=random&color=fff&bold=true&size=128`;
+    return `
     <div class="result-card">
-      <h3>${p.name}</h3>
-      <div class="result-meta">${p.labour} • ${p.state}${p.lga ? `, ${p.lga}` : ''}</div>
-      ${p.desc ? `<div class="chip">${p.desc}</div>` : ''}
-      <div class="result-actions">
-        <a class="btn" href="tel:${p.phone}">Call</a>
-        ${p.email ? `<a class="btn" href="mailto:${p.email}">Email</a>` : ''}
+      <img class="avatar" src="${avatar}" alt="${p.name}">
+      <div class="result-body">
+        <h3>${p.name}</h3>
+        <div class="result-meta">${p.labour} • ${p.state}${p.lga ? `, ${p.lga}` : ''}</div>
+        ${p.desc ? `<div class="chip">${p.desc}</div>` : ''}
+        <div class="result-actions">
+          <a class="btn" href="tel:${p.phone}">Call</a>
+          ${p.email ? `<a class="btn" href="mailto:${p.email}">Email</a>` : ''}
+        </div>
       </div>
     </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function filterProviders({ labour, state, lga }) {
