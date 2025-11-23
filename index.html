@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LabourNG — Find Labour in Nigeria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">🛠️</span>
+      <span class="title">LabourNG</span>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="find">Find Labour</button>
+      <button class="tab-btn" data-tab="provide">Become a Provider</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="tab-find" class="tab active">
+      <div class="card">
+        <h2>Search Labour Providers</h2>
+        <form id="search-form" class="grid">
+          <div class="form-field">
+            <label for="search-labour">Labour Type</label>
+            <select id="search-labour" required></select>
+          </div>
+          <div class="form-field">
+            <label for="search-state">State</label>
+            <select id="search-state" required></select>
+          </div>
+          <div class="form-field">
+            <label for="search-lga">Local Government/Area</label>
+            <select id="search-lga"></select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Search</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="results" class="results"></div>
+    </section>
+
+    <section id="tab-provide" class="tab">
+      <div class="card">
+        <h2>Register as a Labour Provider</h2>
+        <form id="provider-form" class="grid">
+          <div class="form-field">
+            <label for="prov-name">Full Name</label>
+            <input id="prov-name" type="text" placeholder="e.g., John Doe" required>
+          </div>
+          <div class="form-field">
+            <label for="prov-phone">Phone</label>
+            <input id="prov-phone" type="tel" placeholder="e.g., 08012345678" required>
+          </div>
+          <div class="form-field">
+            <label for="prov-email">Email</label>
+            <input id="prov-email" type="email" placeholder="Optional">
+          </div>
+          <div class="form-field">
+            <label for="prov-labour">Labour Type</label>
+            <select id="prov-labour" required></select>
+          </div>
+          <div class="form-field">
+            <label for="prov-state">State</label>
+            <select id="prov-state" required></select>
+          </div>
+          <div class="form-field">
+            <label for="prov-lga">Local Government/Area</label>
+            <select id="prov-lga" required></select>
+          </div>
+          <div class="form-field full">
+            <label for="prov-desc">Short Description</label>
+            <textarea id="prov-desc" rows="3" placeholder="e.g., 5+ years experience, reliable and affordable"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Create Account</button>
+          </div>
+        </form>
+        <div id="provider-message" class="message" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made for Nigeria • All 36 states + FCT supported</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
